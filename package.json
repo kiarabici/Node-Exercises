@@ -1,0 +1,22 @@
+{
+  "name": "exercises",
+  "version": "16.0.0",
+  "description": "node exercises",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kiarabici/Node-Exercises.git"
+  },
+  "author": "kiara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiarabici/Node-Exercises/issues"
+  },
+  "homepage": "https://github.com/kiarabici/Node-Exercises#readme",
+  "dependencies": {
+    "log4js": "^6.7.0"
+  }
+}
