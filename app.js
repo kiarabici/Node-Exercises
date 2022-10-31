@@ -2,7 +2,7 @@
 const http = require("http");
 const port = 3000;
 const server = http.createServer(function (req, res) {
-  res.write("nacktschnecke");
+  res.write("<h1>nacktschnecke</h1>");
   res.end();
 });
 server.listen(port, function (error) {
