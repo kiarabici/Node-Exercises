@@ -1,3 +1,4 @@
+"strict mode";
 console.log("Hello World");
 var user = {
   //creating the object property
