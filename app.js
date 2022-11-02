@@ -1,14 +1,23 @@
-"strict mode"; // this is the file about ex.5
-const http = require("http");
-const port = 3000;
-const server = http.createServer(function (req, res) {
-  res.write("<h1>nacktschnecke</h1>");
-  res.end();
-});
-server.listen(port, function (error) {
-  if (error) {
-    console.log("Something went wrong", error);
+"strict mode";
+var http = require("http");
+
+var server = http.createServer(function (req, res) {
+  //create web server
+  if (req.url == "/nacktschnecke") {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("<html><body><p>nacktschnecke</p></body></html>");
+    res.end();
+  } else if (req.url == "/about") {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("<html><body><p>This is about page</p></body></html>");
+    res.end();
   } else {
-    console.log("http://localhost:3000/nacktschnecke"); //logging to the console the current url
+    res.writeHead(404, { "Content-Type": "" });
+    res.write("404 Not found");
+    res.end();
   }
 });
+
+server.listen(5000); //6 - listen for any incoming requests
+
+console.log("Node.js web server at port 5000 is running..");
