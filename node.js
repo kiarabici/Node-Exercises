@@ -1,16 +1,23 @@
-"strict mode";
-console.log("Hello World");
-var user = {
-  //creating the object property
-  first_name: "John",
-  last_name: "Smith",
-  age: "38",
-  department: "Software",
+"strict mode"; // this is the file of ex 7
+
+const http = require("http");
+const fs = require("fs").promises;
+const host = "localhost";
+const port = 5000;
+const requestListener = function (req, res) {
+  fs.readFile(__dirname + "/nacktschnecke.html")
+    .then((contents) => {
+      res.setHeader("Content-Type", "text/html");
+      res.writeHead(200);
+      res.end(contents);
+    })
+    .catch((err) => {
+      res.writeHead(500);
+      res.end(err);
+      return;
+    });
 };
-console.log(user); // printing the object's properties
-
-delete user.last_name; // deleting the second property
-console.log(user);
-
-var size = Object.keys(user).length; // showing the length of the object
-console.log(size);
+const server = http.createServer(requestListener);
+server.listen(port, host, () => {
+  console.log(`Server is running at http://${host}:${port}`);
+});
