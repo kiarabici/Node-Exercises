@@ -12,7 +12,7 @@ var server = http.createServer(function (req, res) {
     res.write("<html><body><p>This is about page</p></body></html>");
     res.end();
   } else {
-    res.writeHead(404, { "Content-Type": "" });
+    res.writeHead(404, { "Content-Type": "text/html" });
     res.write("404 Not found");
     res.end();
   }
